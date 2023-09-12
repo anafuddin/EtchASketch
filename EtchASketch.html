@@ -13,13 +13,12 @@
             display: grid;
             grid-template-columns: repeat(16, 1fr);
             grid-template-rows: repeat(16, 1fr);
-            background-color: black;
+            background-color: white;
             height: 100vh;
             width: 100%;
         }
 
         .gridbox {
-            background-color: blue;
             border-style: solid;
             border-color: black;
         }
@@ -32,11 +31,24 @@
 
     <script>
         const container = document.querySelector(".container");
-        for (i = 0; i < 16 * 16; i++) {
+        
+    function setSketchGrid() {
+        let promptNum = Number(prompt("Please enter a number between 1-100"));
+       if (promptNum < 101) {
+            container.style.gridTemplateColumns = `repeat(${promptNum}, 1fr)`
+            container.style.gridTemplateRows = `repeat(${promptNum}, 1fr)`
+
+            for (i = 0; i < promptNum * promptNum; i++) {
             let gridDiv = document.createElement('div')
             gridDiv.classList.add("gridbox");
             container.appendChild(gridDiv);
         }
+    } else {
+        setSketchGrid();
+    }
+};
+        const gridDivArr = document.querySelectorAll('.gridbox');
+        gridDivArr.forEach(div => div.addEventListener('mouseover', (e) => e.target.style.backgroundColor = 'black'));
     </script>
 </body>
 </html>
