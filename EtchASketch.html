@@ -18,10 +18,6 @@
             width: 100%;
         }
 
-        .gridbox {
-            border-style: solid;
-            border-color: black;
-        }
     </style>
 </head>
 <body>
@@ -47,6 +43,9 @@
         setSketchGrid();
     }
 };
+
+    setSketchGrid();
+
         const gridDivArr = document.querySelectorAll('.gridbox');
         gridDivArr.forEach(div => div.addEventListener('mouseover', (e) => e.target.style.backgroundColor = 'black'));
     </script>
